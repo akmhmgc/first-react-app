@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Modal from "./components/Modal";
 
 function App() {
+  const [showModal, setshowModal] = useState(true);
   const [showEvents, setshowEvents] = useState(true);
   const [events, setEvents] = useState([
     { title: "mario's birthday bash", id: 1 },
@@ -13,6 +14,8 @@ function App() {
   const handleClick = (id) => {
     setEvents((prevEvents) => prevEvents.filter((event) => event.id !== id));
   };
+
+  const handleClose = () => setshowModal(false);
 
   return (
     <div className="App">
@@ -39,10 +42,12 @@ function App() {
             <button onClick={() => handleClick(event.id)}>delete event</button>
           </React.Fragment>
         ))}
-      <Modal>
-        <h2>10% Off Coupon Code!!</h2>
-        <p>User the code NINJA!) at the checkout</p>
-      </Modal>
+      {showModal && (
+        <Modal handleClose={handleClose}>
+          <h2>10% Off Coupon Code!!</h2>
+          <p>User the code NINJA!) at the checkout</p>
+        </Modal>
+      )}
     </div>
   );
 }
