@@ -1,6 +1,7 @@
 import "./App.css";
 import Title from "./components/Title";
 import Event from "./components/Event";
+import NewEventForm from "./components/NewEventForm";
 import React, { useState } from "react";
 import Modal from "./components/Modal";
 
@@ -39,13 +40,12 @@ function App() {
           <Event key={event.id} handleClick={handleClick} title={event.title} id={event.id} index={index}/>
         ))}
       {showModal && (
-        <Modal handleClose={handleClose} isSalesModal={true}>
-          <h2>10% Off Coupon Code!!</h2>
-          <p>User the code NINJA!) at the checkout</p>
+        <Modal handleClose={handleClose} isSalesModal={false}>
+          <NewEventForm/>
         </Modal>
       )}
       <div>
-        <button onClick={() => setshowModal(true)}>Show Modal</button>
+        <button onClick={() => setshowModal(true)}>Add New Event</button>
       </div>
     </div>
   );
