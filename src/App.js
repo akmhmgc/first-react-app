@@ -1,6 +1,7 @@
 import "./App.css";
 import Title from "./components/Title";
 import React, { useState } from "react";
+import Modal from "./components/Modal";
 
 function App() {
   const [showEvents, setshowEvents] = useState(true);
@@ -15,7 +16,10 @@ function App() {
 
   return (
     <div className="App">
-      <Title title="Events in Your Area" subtitle="All the latest events in Marioland"/>
+      <Title
+        title="Events in Your Area"
+        subtitle="All the latest events in Marioland"
+      />
       {showEvents && (
         <div>
           <button onClick={() => setshowEvents(false)}>hide events</button>
@@ -35,6 +39,10 @@ function App() {
             <button onClick={() => handleClick(event.id)}>delete event</button>
           </React.Fragment>
         ))}
+      <Modal>
+        <h2>10% Off Coupon Code!!</h2>
+        <p>User the code NINJA!) at the checkout</p>
+      </Modal>
     </div>
   );
 }
