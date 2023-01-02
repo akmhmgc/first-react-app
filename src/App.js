@@ -8,16 +8,13 @@ import Modal from "./components/Modal";
 function App() {
   const [showModal, setshowModal] = useState(false);
   const [showEvents, setshowEvents] = useState(true);
-  const [events, setEvents] = useState([
-    { title: "mario's birthday bash", id: 1 },
-    { title: "bowser's live stream", id: 2 },
-    { title: "race on moo mo farm", id: 3 },
-  ]);
+  const [events, setEvents] = useState([]);
   const handleClick = (id) => {
     setEvents((prevEvents) => prevEvents.filter((event) => event.id !== id));
   };
 
   const handleClose = () => setshowModal(false);
+  const addEvent = (event) => setEvents((prevEvents) => [...prevEvents, event]);
 
   return (
     <div className="App">
@@ -37,11 +34,17 @@ function App() {
       )}
       {showEvents &&
         events.map((event, index) => (
-          <Event key={event.id} handleClick={handleClick} title={event.title} id={event.id} index={index}/>
+          <Event
+            key={event.id}
+            handleClick={handleClick}
+            title={event.title}
+            id={event.id}
+            index={index}
+          />
         ))}
       {showModal && (
         <Modal handleClose={handleClose} isSalesModal={false}>
-          <NewEventForm/>
+          <NewEventForm addEvent={addEvent} />
         </Modal>
       )}
       <div>
