@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Modal from "./components/Modal";
 
 function App() {
-  const [showModal, setshowModal] = useState(true);
+  const [showModal, setshowModal] = useState(false);
   const [showEvents, setshowEvents] = useState(true);
   const [events, setEvents] = useState([
     { title: "mario's birthday bash", id: 1 },
@@ -48,6 +48,9 @@ function App() {
           <p>User the code NINJA!) at the checkout</p>
         </Modal>
       )}
+      <div>
+        <button onClick={() => setshowModal(true)}>Show Modal</button>
+      </div>
     </div>
   );
 }
