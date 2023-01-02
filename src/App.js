@@ -39,7 +39,7 @@ function App() {
           <Event key={event.id} handleClick={handleClick} title={event.title} id={event.id} index={index}/>
         ))}
       {showModal && (
-        <Modal handleClose={handleClose}>
+        <Modal handleClose={handleClose} isSalesModal={true}>
           <h2>10% Off Coupon Code!!</h2>
           <p>User the code NINJA!) at the checkout</p>
         </Modal>
