@@ -1,7 +1,7 @@
 import "./NewEventForm.css";
 import { useState } from "react";
 
-export default function NewEventForm({ addEvent }) {
+export default function NewEventForm({ addEvent, handleClose}) {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
 
@@ -20,6 +20,7 @@ export default function NewEventForm({ addEvent }) {
     };
     addEvent(event);
     resetForm();
+    handleClose();
   };
   return (
     <form className="new-event-form" onSubmit={handleSubmit}>

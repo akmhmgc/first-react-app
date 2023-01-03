@@ -13,8 +13,10 @@ function App() {
     setEvents((prevEvents) => prevEvents.filter((event) => event.id !== id));
   };
 
-  const handleClose = () => setshowModal(false);
-  const addEvent = (event) => setEvents((prevEvents) => [...prevEvents, event]);
+  const addEvent = (event) => {
+    setEvents((prevEvents) => [...prevEvents, event]);
+    setshowModal(false);
+  };
 
   return (
     <div className="App">
@@ -43,7 +45,7 @@ function App() {
           />
         ))}
       {showModal && (
-        <Modal handleClose={handleClose} isSalesModal={false}>
+        <Modal isSalesModal={false}>
           <NewEventForm addEvent={addEvent} />
         </Modal>
       )}
