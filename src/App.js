@@ -41,6 +41,8 @@ function App() {
             handleClick={handleClick}
             title={event.title}
             id={event.id}
+            location={event.location}
+            date={event.date}
             index={index}
           />
         ))}
